@@ -1,58 +1,56 @@
-import MuiButton from '@mui/material/Button/Button';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { color } from '../../../styles/values/color';
 
-const getSizeWidth = (size) => {
+const getVariantStyles = ({ primary = false }) =>
+  primary
+    ? css`
+        color: white;
+        background-color: pink;
+      `
+    : css`
+        background-color: transparent;
+        color: pink;
+        box-shadow: #222222 0px 0px 0px 1px inset;
+      `;
+
+const getSizeStyles = ({ size = 'medium' }) => {
   switch (size) {
-    case 'full':
-      return '100%';
-
-    case 'lg':
-      return '200px';
-
-    case 'sm':
-      return '100px';
-
-    default:
-      return '100%';
+    case 'small': {
+      return css`
+        font-size: 12px;
+        padding: 10px 16px;
+      `;
+    }
+    case 'large': {
+      return css`
+        font-size: 16px;
+        padding: 12px 24px;
+      `;
+    }
+    default: {
+      return css`
+        font-size: 14px;
+        padding: 11px 20px;
+      `;
+    }
   }
 };
 
-const BasicButton = styled.div`
-  width: ${({ size }) => getSizeWidth(size)};
-  height: ${({ size }) => (size === 'sm' ? '38px' : '44px')};
-  font-size: ${({ size }) => (size === 'sm' ? '12px' : '14px')};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 6px;
+export const ButtonContainer = styled.button`
+  font-family: 600;
+  font-weight: 'bold';
+  border: 0;
+  border-radius: 3em;
   cursor: pointer;
-`;
+  display: inline-block;
+  line-height: 1;
 
-export const Primary = styled(BasicButton)`
-  background-color: ${color.primary};
-  color: white;
-
-  :hover {
-    background-color: ${color.primary_hover};
-  }
-
-  &.Mui-disabled {
-    opacity: 0.8;
-  }
-`;
-
-export const TextButton = styled(BasicButton)`
-  background-color: ${({ active }) =>
-    active === 'true' ? color.secondary : 'transparent'};
-  color: ${({ active }) => (active === 'true' ? color.primary : 'black')};
-
-  :hover {
-    background-color: ${color.bgc.hover};
-  }
-
-  &.Mui-disabled {
-    opacity: 0.8;
-  }
+  ${(props) => getVariantStyles(props)}
+  ${(props) => getSizeStyles(props)}
+  ${({ backgroundColor }) =>
+    backgroundColor &&
+    css`
+      background-color: ${backgroundColor};
+    `}
 `;

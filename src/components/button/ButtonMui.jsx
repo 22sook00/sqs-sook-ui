@@ -1,6 +1,6 @@
-import * as SC from '../../styles/components/button/Button.styles';
+import * as SC from '../../styles/components/button/ButtonMui.styles';
 
-const Button = ({
+const ButtonMui = ({
   role = 'primary',
   size = 'lg',
   children,
@@ -23,4 +23,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default ButtonMui;

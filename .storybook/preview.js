@@ -1,8 +1,10 @@
 import { withTheme } from './withTheme.decorator';
+import { withThemeFromJSXProvider } from '@storybook/addon-styling';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
+    expanded: true,
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
@@ -28,4 +30,5 @@ export const globalTypes = {
   },
 };
 
-export const decorators = [withTheme];
+export const decorators = [withThemeFromJSXProvider(withTheme)];
+// export const decorators = [withTheme];

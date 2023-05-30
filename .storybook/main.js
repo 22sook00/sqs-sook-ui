@@ -7,6 +7,7 @@ const config = {
     '@storybook/addon-interactions',
     '@storybook/addon-styling',
     '@storybook/addon-actions',
+    '@storybook/addon-knobs',
   ],
   framework: {
     name: '@storybook/react-webpack5',

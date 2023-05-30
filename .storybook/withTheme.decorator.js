@@ -1,5 +1,5 @@
 import { css, Global, ThemeProvider, useTheme } from '@emotion/react';
-import { lightTheme, darkTheme } from '../src/theme';
+import { lightTheme, darkTheme } from '../src/stories/theme';
 
 const THEMES = {
   light: lightTheme,

@@ -6,10 +6,8 @@ import { AUTH_VALIDATION } from '../../js/enum/validationStatus';
 import { AUTH_FORM_ERROR } from '../../js/enum/errorStatus';
 import Input from '../input/Input';
 import InputLabel from '../input/InputLabel';
+import ButtonMui from '../button/ButtonMui';
 import { FlexBox } from '../../styles/global/Flex.styles';
-
-import Button from '../button/Button';
-
 const TEMP_ID = '22sook00@gmail.com';
 const Form = () => {
   const methods = useForm({
@@ -149,14 +147,14 @@ const Form = () => {
             validatePattern={AUTH_VALIDATION['phone']}
             errorMsg={AUTH_FORM_ERROR['phone'].validation}
           />
-          <Button
+          <ButtonMui
             disabled={!phone || errors?.phone ? true : false}
             type="button"
             size="lg"
             onClick={handleVerifyPhone}
           >
             인증번호 받기
-          </Button>
+          </ButtonMui>
         </FlexBox>
 
         {/* {isShowVerifyInput && (
@@ -169,9 +167,9 @@ const Form = () => {
         )} */}
 
         <InputLabel label={'이용약관'} />
-        <Button type="submit" size="full">
+        <ButtonMui type="submit" size="full">
           가입
-        </Button>
+        </ButtonMui>
       </SC.AuthFormContainer>
     </FormProvider>
   );
